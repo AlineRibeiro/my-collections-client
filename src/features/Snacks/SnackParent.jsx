@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Snack } from '../../api/Snacks'
 
 const SnackParent = () => {
-  const [snackIndex, setSnackIndex] = useState('a');
+  const [snackIndex, setSnackIndex] = useState('');
 
   const fetchSnackIndex = () => {
     Snack.index().then(response => {
