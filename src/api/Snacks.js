@@ -1,10 +1,7 @@
 import { baseUrl } from "../config";
 
-  export  const Snack = {
+export const Snack = {
   index() {
-    return fetch(`${baseUrl}/snacks`, {
-    }).then(res => res.json());
+    return fetch(`${baseUrl}/snacks`, {}).then((res) => res.json());
   },
 };
-
-
