@@ -1,6 +1,6 @@
 import { baseUrl } from "../config";
 
-export const Authentication = {
+export const Session = {
   create(requestBody) {
     return fetch(`${baseUrl}/users/sign_in`, {
       method: "POST",

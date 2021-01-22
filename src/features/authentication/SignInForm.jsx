@@ -11,7 +11,7 @@ import Container from "@material-ui/core/Container";
 import Alert from "@material-ui/lab/Alert";
 
 import SignFormStyles from "./SignFormStyles";
-import { Authentication } from "../../api/Authentication";
+import { Session } from "../../api/Session";
 
 export default function SignInForm() {
   const [email, setEmail] = useState("");
@@ -37,7 +37,7 @@ export default function SignInForm() {
       user: { email, password },
     };
 
-    Authentication.create(requestBody).then((response) => {
+    Session.create(requestBody).then((response) => {
       console.log(response);
       if (!response.error) {
         alert("You are logged in");
