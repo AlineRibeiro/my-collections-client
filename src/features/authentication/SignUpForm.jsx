@@ -16,7 +16,7 @@ import { User } from "../../api/User";
 export default function SignUpForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [messageError, setMessageError] = useState({ email: '', password: ''});
+  const [messageError, setMessageError] = useState({});
   const [errorAlert, setErrorAlert] = useState(false);
 
   const handleClose = () => {
@@ -25,15 +25,14 @@ export default function SignUpForm() {
 
   const displayError = (messageError) => {
     const entries = Object.entries(messageError)
-    console.log(entries)
-       for (const [key, value] of entries) {
-        return ( <Alert onClose={handleClose} severity="error">
-          The {key} is {value}
-        </Alert>
-        )
-      }
-}
-
+    const errorArray = [];
+    for (const [ key, value ] of entries) {
+     errorArray.push( `The ${key} is ${value}. `);
+    }
+    return <Alert onClose={handleClose} severity="error">
+      {errorArray }
+    </Alert>
+  }
 
   const fetchUserCreate = (event) => {
     event.preventDefault();
@@ -46,7 +45,7 @@ export default function SignUpForm() {
       if (!response.errors) {
         alert("Your user has been created");
       } else {
-        setMessageError({ email: response.errors.email, password: response.errors.password } )
+        setMessageError( response.errors  )
         setErrorAlert(true);
       }
     });
