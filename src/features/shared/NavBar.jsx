@@ -37,6 +37,9 @@ const NavBar = () => {
           Snackrism
         </Typography>
         <Button className={classes.loginBtn} color="inherit">
+          Register
+        </Button>
+        <Button className={classes.loginBtn} color="inherit">
           Login
         </Button>
       </Toolbar>
