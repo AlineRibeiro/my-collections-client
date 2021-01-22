@@ -5,12 +5,12 @@ import SnackParent from "./features/Snacks/SnackParent";
 import NavBar from "./features/shared/NavBar";
 
 function App() {
-  return(
+  return (
     <>
-    <NavBar />
-    <SnackParent />
+      <NavBar />
+      <SnackParent />
     </>
-  )
+  );
 }
 
 export default App;
