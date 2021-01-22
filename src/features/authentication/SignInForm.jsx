@@ -9,6 +9,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Alert from "@material-ui/lab/Alert";
+import { useHistory } from "react-router-dom";
 
 import SignFormStyles from "./SignFormStyles";
 import { Session } from "../../api/Session";
@@ -18,6 +19,8 @@ export default function SignInForm() {
   const [password, setPassword] = useState("");
   const [messageError, setMessageError] = useState("");
   const [errorAlert, setErrorAlert] = useState(false);
+
+  let history = useHistory();
 
   const handleClose = () => {
     setErrorAlert(false);
@@ -41,6 +44,7 @@ export default function SignInForm() {
       console.log(response);
       if (!response.error) {
         alert("You are logged in");
+        history.push('/snacks')
       } else {
         setMessageError(response.error);
         setErrorAlert(true);
