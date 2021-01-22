@@ -29,10 +29,18 @@ export default function SignUpForm() {
     for (const [ key, value ] of entries) {
      errors.push( `The ${key} is ${value}. `);
     }
-    return <Alert onClose={handleClose} severity="error">
-      {errors }
-    </Alert>
+
+     const errorItems = errors.map((error) =>
+       <Alert onClose={handleClose} severity="error" style={{marginTop: '10px'}}>
+        <div> { error } </div>
+       </Alert>
+    );
+
+    return(
+           errorItems
+    )
   }
+
 
   const fetchUserCreate = (event) => {
     event.preventDefault();
