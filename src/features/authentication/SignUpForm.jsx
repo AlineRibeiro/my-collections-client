@@ -25,11 +25,13 @@ export default function SignUpForm() {
 
   const displayError = (messageError) => {
     const entries = Object.entries(messageError)
-    return(
-          <Alert onClose={handleClose} severity="error">
-            { entries }
-          </Alert>
+    console.log(entries)
+       for (const [key, value] of entries) {
+        return ( <Alert onClose={handleClose} severity="error">
+          The {key} is {value}
+        </Alert>
         )
+      }
 }
 
 
