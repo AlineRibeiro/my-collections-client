@@ -13,8 +13,11 @@ export const NavBarStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   title: {
-    color: "black",
     flexGrow: 1,
+    '& a': {
+      textDecoration: "none",
+      color: 'black'
+    }
   },
   loginBtn: {
     color: "black",
