@@ -10,17 +10,6 @@ import { Link } from "react-router-dom";
 import { NavBarStyles } from "./NavBarStyles";
 
 const NavBar = () => {
-  // const [snackIndex, setSnackIndex] = useState("");
-
-  // const fetchSnackIndex = () => {
-  //   Snack.index().then((response) => {
-  //     setSnackIndex(response.snacks);
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   fetchSnackIndex();
-  // });
   const classes = NavBarStyles();
 
   return (

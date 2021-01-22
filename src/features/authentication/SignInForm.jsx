@@ -1,17 +1,41 @@
-import React from "react";
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import SignFormStyles from './SignFormStyles';
+import React, { useState } from "react";
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
+import SignFormStyles from "./SignFormStyles";
+import { Authentication } from "../../api/Authentication";
 
+// useEffect(() => {
+//   fetchSnackIndex();
+// });
 
 export default function SignInForm() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [messageError, setMessageError] = useState("");
+
+  const fetchUserCreate = (event) => {
+    event.preventDefault();
+    const requestBody = {
+      user: { email, password },
+    };
+
+    Authentication.create(requestBody).then((response) => {
+      console.log(response);
+      if (!response.error) {
+        alert("You are logged in");
+      } else {
+        alert(JSON.stringify(response.error));
+      }
+    });
+  };
+
   const classes = SignFormStyles();
 
   return (
@@ -22,9 +46,9 @@ export default function SignInForm() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-         Login
+          Login
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={fetchUserCreate}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -35,6 +59,7 @@ export default function SignInForm() {
             name="email"
             autoComplete="email"
             autoFocus
+            onChange={(event) => setEmail(event.target.value)}
           />
           <TextField
             variant="outlined"
@@ -46,6 +71,7 @@ export default function SignInForm() {
             type="password"
             id="password"
             autoComplete="current-password"
+            onChange={(event) => setPassword(event.target.value)}
           />
           <Button
             type="submit"
@@ -73,20 +99,3 @@ export default function SignInForm() {
     </Container>
   );
 }
-
-
-
-// import { Snack } from "../../api/Snacks";
-
-
-// const [snackIndex, setSnackIndex] = useState("");
-
-// const fetchSnackIndex = () => {
-//   Snack.index().then((response) => {
-//     setSnackIndex(response.snacks);
-//   });
-// };
-
-// useEffect(() => {
-//   fetchSnackIndex();
-// });
