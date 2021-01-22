@@ -13,7 +13,6 @@ import Alert from "@material-ui/lab/Alert";
 import SignFormStyles from "./SignFormStyles";
 import { Authentication } from "../../api/Authentication";
 
-
 export default function SignInForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,7 +26,7 @@ export default function SignInForm() {
   const displayError = () => {
     return (
       <Alert onClose={handleClose} severity="error">
-        { messageError }
+        {messageError}
       </Alert>
     );
   };
@@ -95,7 +94,7 @@ export default function SignInForm() {
           >
             Login
           </Button>
-          { errorAlert && displayError()}
+          {errorAlert && displayError()}
           <Grid container>
             <Grid item xs>
               <Link href="#" variant="body2">
