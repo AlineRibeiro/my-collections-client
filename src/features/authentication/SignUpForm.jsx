@@ -24,23 +24,24 @@ export default function SignUpForm() {
   };
 
   const displayError = (messageError) => {
-    const entries = Object.entries(messageError)
+    const entries = Object.entries(messageError);
     const errors = [];
-    for (const [ key, value ] of entries) {
-     errors.push( `The ${key} is ${value}. `);
+    for (const [key, value] of entries) {
+      errors.push(`The ${key} is ${value}. `);
     }
 
-     const errorItems = errors.map((error) =>
-       <Alert onClose={handleClose} severity="error" style={{marginTop: '10px'}}>
-        <div> { error } </div>
-       </Alert>
-    );
+    const errorItems = errors.map((error) => (
+      <Alert
+        onClose={handleClose}
+        severity="error"
+        style={{ marginTop: "10px" }}
+      >
+        <div> {error} </div>
+      </Alert>
+    ));
 
-    return(
-           errorItems
-    )
-  }
-
+    return errorItems;
+  };
 
   const fetchUserCreate = (event) => {
     event.preventDefault();
@@ -53,7 +54,7 @@ export default function SignUpForm() {
       if (!response.errors) {
         alert("Your user has been created");
       } else {
-        setMessageError( response.errors  )
+        setMessageError(response.errors);
         setErrorAlert(true);
       }
     });
