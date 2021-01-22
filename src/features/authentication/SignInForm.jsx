@@ -8,17 +8,29 @@ import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
+import Alert from "@material-ui/lab/Alert";
+
 import SignFormStyles from "./SignFormStyles";
 import { Authentication } from "../../api/Authentication";
 
-// useEffect(() => {
-//   fetchSnackIndex();
-// });
 
 export default function SignInForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [messageError, setMessageError] = useState("");
+  const [errorAlert, setErrorAlert] = useState(false);
+
+  const handleClose = () => {
+    setErrorAlert(false);
+  };
+
+  const displayError = () => {
+    return (
+      <Alert onClose={handleClose} severity="error">
+        { messageError }
+      </Alert>
+    );
+  };
 
   const fetchUserCreate = (event) => {
     event.preventDefault();
@@ -31,7 +43,8 @@ export default function SignInForm() {
       if (!response.error) {
         alert("You are logged in");
       } else {
-        alert(JSON.stringify(response.error));
+        setMessageError(response.error);
+        setErrorAlert(true);
       }
     });
   };
@@ -82,6 +95,7 @@ export default function SignInForm() {
           >
             Login
           </Button>
+          { errorAlert && displayError()}
           <Grid container>
             <Grid item xs>
               <Link href="#" variant="body2">
