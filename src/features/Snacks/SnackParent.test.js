@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 
-import SnackParent from "./Snacks/SnackParent";
+import SnackParent from "./SnackParent";
 
 test("renders learn react link", () => {
   render(<SnackParent />);
