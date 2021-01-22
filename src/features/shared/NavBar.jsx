@@ -35,17 +35,16 @@ const NavBar = () => {
           <MenuIcon />
         </IconButton>
 
-        <Typography  variant="h6" className={classes.title}>
-        <a href="/snacks">Snackrism</a>
+        <Typography variant="h6" className={classes.title}>
+          <Link to="/snacks">Snackrism</Link>
         </Typography>
 
-
-        <Button href="/users" className={classes.loginBtn} color="inherit">
-          Register
+        <Button className={classes.loginBtn} color="inherit">
+          <Link to="/users">Register</Link>
         </Button>
 
-        <Button href="/sign-in" className={classes.loginBtn} color="inherit">
-          Login
+        <Button className={classes.loginBtn} color="inherit">
+          <Link to="/sign-in">Login</Link>
         </Button>
       </Toolbar>
     </AppBar>

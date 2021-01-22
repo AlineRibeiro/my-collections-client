@@ -14,13 +14,17 @@ export const NavBarStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    '& a': {
+    "& a": {
       textDecoration: "none",
-      color: 'black'
-    }
+      color: "black",
+    },
   },
   loginBtn: {
     color: "black",
+    "& a": {
+      textDecoration: "none",
+      color: "black",
+    },
   },
 }));
 
