@@ -10,6 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Alert from "@material-ui/lab/Alert";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import SignFormStyles from "./SignFormStyles";
 import { loadUser } from "./userSlice";
@@ -22,6 +23,7 @@ export default function SignUpForm() {
   const [errorAlert, setErrorAlert] = useState(false);
 
   const dispatch = useDispatch();
+  let history = useHistory();
 
   const handleClose = () => {
     setErrorAlert(false);
@@ -59,6 +61,7 @@ export default function SignUpForm() {
       if (!response.errors) {
         dispatch(loadUser(response));
         alert("Your user has been created");
+        history.push("/snacks")
       } else {
         setMessageError(response.errors);
         setErrorAlert(true);
