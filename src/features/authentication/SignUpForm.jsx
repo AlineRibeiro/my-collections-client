@@ -14,7 +14,7 @@ import { useHistory } from "react-router-dom";
 
 import SignFormStyles from "./SignFormStyles";
 import { loadUser } from "./userSlice";
-import {User} from "../../api/User";
+import { User } from "../../api/User";
 
 export default function SignUpForm() {
   const [email, setEmail] = useState("");
@@ -24,6 +24,7 @@ export default function SignUpForm() {
 
   const dispatch = useDispatch();
   let history = useHistory();
+  const classes = SignFormStyles();
 
   const handleClose = () => {
     setErrorAlert(false);
@@ -61,15 +62,13 @@ export default function SignUpForm() {
       if (!response.errors) {
         dispatch(loadUser(response));
         alert("Your user has been created");
-        history.push("/snacks")
+        history.push("/snacks");
       } else {
         setMessageError(response.errors);
         setErrorAlert(true);
       }
     });
   };
-
-  const classes = SignFormStyles();
 
   return (
     <Container component="main" maxWidth="xs">

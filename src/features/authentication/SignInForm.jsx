@@ -13,8 +13,8 @@ import { useHistory } from "react-router-dom";
 
 import SignFormStyles from "./SignFormStyles";
 import { Session } from "../../api/Session";
-import {loadUser} from "./userSlice";
-import {useDispatch} from "react-redux";
+import { loadUser } from "./userSlice";
+import { useDispatch } from "react-redux";
 
 export default function SignInForm() {
   const [email, setEmail] = useState("");
@@ -24,6 +24,7 @@ export default function SignInForm() {
 
   const dispatch = useDispatch();
   let history = useHistory();
+  const classes = SignFormStyles();
 
   const handleClose = () => {
     setErrorAlert(false);
@@ -55,8 +56,6 @@ export default function SignInForm() {
       }
     });
   };
-
-  const classes = SignFormStyles();
 
   return (
     <Container component="main" maxWidth="xs">
