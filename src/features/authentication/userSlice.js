@@ -11,25 +11,21 @@ export const userSlice = createSlice({
   name: "user",
   initialState: INITIAL_STATE,
   reducers: {
-    loadEmail: (state, action) => ({
+    loadUser: (state, action) => ({
       ...state,
-      email: action.payload,
-    }),
-    loadId: (state, action) => ({
-      ...state,
-      id: action.payload,
+      email: action.payload.email,
+      id: action.payload.id,
     }),
   },
 });
 
-export const { loadEmail, loadId } = userSlice.actions;
+export const { loadUser } = userSlice.actions;
 
 export const loadSignUpData = (requestBody) => async (dispatch) => {
   User.create(requestBody).then((response) => {
     console.log(response);
     if (!response.errors) {
-      dispatch(loadEmail(response.email));
-      dispatch(loadId(response.id));
+      dispatch(loadUser(response));
       alert("Your user has been created");
     } else {
       alert(
