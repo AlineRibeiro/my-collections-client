@@ -44,7 +44,7 @@ export default function SignInForm() {
       console.log(response);
       if (!response.error) {
         alert("You are logged in");
-        history.push('/snacks')
+        history.push("/snacks");
       } else {
         setMessageError(response.error);
         setErrorAlert(true);

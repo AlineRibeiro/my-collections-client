@@ -9,10 +9,10 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Alert from "@material-ui/lab/Alert";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 
 import SignFormStyles from "./SignFormStyles";
-import { loadSignUpData } from './userSlice';
+import { loadSignUpData } from "./userSlice";
 
 export default function SignUpForm() {
   const [email, setEmail] = useState("");
@@ -46,7 +46,6 @@ export default function SignUpForm() {
     return errorItems;
   };
 
-
   const fetchUserCreate = (event) => {
     event.preventDefault();
 
@@ -55,7 +54,6 @@ export default function SignUpForm() {
     };
 
     dispatch(loadSignUpData(requestBody));
-
   };
 
   const classes = SignFormStyles();
