@@ -13,6 +13,8 @@ import { useHistory } from "react-router-dom";
 
 import SignFormStyles from "./SignFormStyles";
 import { Session } from "../../api/Session";
+import {loadUser} from "./userSlice";
+import {useDispatch} from "react-redux";
 
 export default function SignInForm() {
   const [email, setEmail] = useState("");
@@ -20,6 +22,7 @@ export default function SignInForm() {
   const [messageError, setMessageError] = useState("");
   const [errorAlert, setErrorAlert] = useState(false);
 
+  const dispatch = useDispatch();
   let history = useHistory();
 
   const handleClose = () => {
@@ -43,6 +46,7 @@ export default function SignInForm() {
     Session.create(requestBody).then((response) => {
       console.log(response);
       if (!response.error) {
+        dispatch(loadUser(response));
         alert("You are logged in");
         history.push("/snacks");
       } else {
