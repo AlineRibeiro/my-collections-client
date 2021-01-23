@@ -12,7 +12,8 @@ import Alert from "@material-ui/lab/Alert";
 import { useDispatch } from "react-redux";
 
 import SignFormStyles from "./SignFormStyles";
-import { loadSignUpData } from "./userSlice";
+import { loadUser } from "./userSlice";
+import {User} from "../../api/User";
 
 export default function SignUpForm() {
   const [email, setEmail] = useState("");
@@ -53,7 +54,16 @@ export default function SignUpForm() {
       user: { email, password },
     };
 
-    dispatch(loadSignUpData(requestBody));
+    User.create(requestBody).then((response) => {
+      console.log(response);
+      if (!response.errors) {
+        dispatch(loadUser(response));
+        alert("Your user has been created");
+      } else {
+        setMessageError(response.errors);
+        setErrorAlert(true);
+      }
+    });
   };
 
   const classes = SignFormStyles();
