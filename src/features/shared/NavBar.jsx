@@ -6,16 +6,25 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { NavBarStyles } from "./NavBarStyles";
+import { Session } from "../../api/Session";
+import {loadUser} from "../authentication/userSlice";
 
 const NavBar = () => {
   const classes = NavBarStyles();
-  const userEmail = useSelector(state => state.user.email)
+  const userEmail = useSelector((state) => state.user.email);
 
-  useEffect(() => {
-  }, [userEmail]);
+  const dispatch = useDispatch();
+
+  const logOut = () => {
+    Session.destroy().then();
+    dispatch(loadUser({}));
+  };
+
+  useEffect(() => {}, [userEmail]);
 
   return (
     <AppBar className={classes.appBarParent} position="static">
@@ -43,6 +52,10 @@ const NavBar = () => {
 
         <Button className={classes.loginBtn} color="inherit">
           <Link to="/sign-in">Login</Link>
+        </Button>
+
+        <Button className={classes.loginBtn} color="inherit" onClick={logOut}>
+          Logout
         </Button>
       </Toolbar>
     </AppBar>

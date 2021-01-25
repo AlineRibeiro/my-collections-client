@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 
 import "./App.css";
@@ -8,7 +8,7 @@ import NavBar from "./features/shared/NavBar";
 import SignInForm from "./features/authentication/SignInForm";
 import SignUpForm from "./features/authentication/SignUpForm";
 import { CurrentUser } from "./api/CurrentUser";
-import {loadUser} from "./features/authentication/userSlice";
+import { loadUser } from "./features/authentication/userSlice";
 import { useDispatch } from "react-redux";
 
 function App() {
@@ -17,8 +17,8 @@ function App() {
   const fetchCurrentUser = () => {
     CurrentUser.show().then((response) => {
       dispatch(loadUser(response));
-    })
-  }
+    });
+  };
 
   useEffect(() => {
     fetchCurrentUser();
