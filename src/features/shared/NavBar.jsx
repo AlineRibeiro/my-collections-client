@@ -11,18 +11,42 @@ import { useDispatch } from "react-redux";
 
 import { NavBarStyles } from "./NavBarStyles";
 import { Session } from "../../api/Session";
-import {loadUser} from "../authentication/userSlice";
+import { loadUser } from "../authentication/userSlice";
 
 const NavBar = () => {
   const classes = NavBarStyles();
+  const dispatch = useDispatch();
   const userEmail = useSelector((state) => state.user.email);
 
-  const dispatch = useDispatch();
+  const LogOutButton = () => {
+    return (
+      <Button className={classes.loginBtn} color="inherit" onClick={logOut}>
+        Logout
+      </Button>
+    );
+  };
+
+  const AuthenticationButtons = () => {
+    return (
+      <>
+        <Button className={classes.loginBtn} color="inherit">
+          <Link to="/users">Register</Link>
+        </Button>
+        <Button className={classes.loginBtn} color="inherit">
+          <Link to="/sign-in">Login</Link>
+        </Button>
+      </>
+    );
+  };
 
   const logOut = () => {
     Session.destroy().then();
     dispatch(loadUser({}));
   };
+
+  function logButtons(currentUserEmail) {
+    return currentUserEmail ? <LogOutButton /> : <AuthenticationButtons />;
+  }
 
   useEffect(() => {}, [userEmail]);
 
@@ -46,17 +70,7 @@ const NavBar = () => {
           <Link to="/snacks">{userEmail}</Link>
         </Typography>
 
-        <Button className={classes.loginBtn} color="inherit">
-          <Link to="/users">Register</Link>
-        </Button>
-
-        <Button className={classes.loginBtn} color="inherit">
-          <Link to="/sign-in">Login</Link>
-        </Button>
-
-        <Button className={classes.loginBtn} color="inherit" onClick={logOut}>
-          Logout
-        </Button>
+        {logButtons(userEmail)}
       </Toolbar>
     </AppBar>
   );
