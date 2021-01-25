@@ -45,7 +45,6 @@ export default function SignInForm() {
     };
 
     Session.create(requestBody).then((response) => {
-      console.log(response);
       if (!response.error) {
         dispatch(loadUser(response));
         alert("You are logged in");
