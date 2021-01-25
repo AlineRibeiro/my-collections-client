@@ -18,6 +18,13 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const userEmail = useSelector((state) => state.user.email);
 
+  useEffect(() => {}, [userEmail]);
+
+  const logOut = () => {
+    Session.destroy().then();
+    dispatch(loadUser({}));
+  };
+
   const LogOutButton = () => {
     return (
       <Button className={classes.loginBtn} color="inherit" onClick={logOut}>
@@ -39,16 +46,9 @@ const NavBar = () => {
     );
   };
 
-  const logOut = () => {
-    Session.destroy().then();
-    dispatch(loadUser({}));
-  };
-
   function logButtons(currentUserEmail) {
     return currentUserEmail ? <LogOutButton /> : <AuthenticationButtons />;
   }
-
-  useEffect(() => {}, [userEmail]);
 
   return (
     <AppBar className={classes.appBarParent} position="static">
