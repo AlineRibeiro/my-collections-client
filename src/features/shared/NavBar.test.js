@@ -39,3 +39,21 @@ test("displays a login button", async () => {
   expect(screen.getByText("Login")).toBeInTheDocument();
   expect(screen.getByText("Register")).toBeInTheDocument();
 });
+
+test("displays a logout button", async () => {
+  const initialState = { user: {email: "test@test.com", id: 1} };
+  const mockStore = configureStore();
+  let store = mockStore(initialState);
+
+  render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <NavBar />
+      </BrowserRouter>
+    </Provider>
+  );
+
+  await waitFor(() => screen.getByText("Logout"));
+
+  expect(screen.getByText("Logout")).toBeInTheDocument();
+});
