@@ -42,7 +42,6 @@ test("displays a logout button", async () => {
   await waitFor(() => screen.getByText("Logout"));
 
   expect(screen.getByText("Logout")).toBeInTheDocument();
+  expect(screen.getByText("test@test.com")).toBeInTheDocument();
 });
-
-//email aparece
 //request para current_user, a store eh atualizada? testar no app.js
