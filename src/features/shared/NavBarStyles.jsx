@@ -17,6 +17,9 @@ export const NavBarStyles = makeStyles((theme) => ({
       textDecoration: "none",
       color: "black",
     },
+    "& div": {
+      color: "black",
+    },
   },
   loginBtn: {
     color: "black",

@@ -67,7 +67,7 @@ const NavBar = () => {
         </Typography>
 
         <Typography variant="h6" className={classes.title}>
-          <Link to="/snacks">{userEmail}</Link>
+          <div>{userEmail}</div>
         </Typography>
 
         {logButtons(userEmail)}
