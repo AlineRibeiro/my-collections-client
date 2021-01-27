@@ -6,12 +6,9 @@ import configureStore from "redux-mock-store";
 import { BrowserRouter } from "react-router-dom";
 
 import NavBar from "./NavBar";
+import store from "../../app/store";
 
 test("displays a login button", async () => {
-  const initialState = { user: {} };
-  const mockStore = configureStore();
-  let store = mockStore(initialState);
-
   render(
     <Provider store={store}>
       <BrowserRouter>
