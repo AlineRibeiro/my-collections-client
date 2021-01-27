@@ -27,7 +27,7 @@ test("displays a login button", async () => {
 });
 
 test("displays a logout button", async () => {
-  const initialState = { user: {email: "test@test.com", id: 1} };
+  const initialState = { user: { email: "test@test.com", id: 1 } };
   const mockStore = configureStore();
   let store = mockStore(initialState);
 
