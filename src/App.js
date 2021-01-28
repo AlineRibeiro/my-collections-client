@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 
 import "./App.css";
-import "./features/Snacks/SnackParent";
-import SnackParent from "./features/Snacks/SnackParent";
+import "./features/snacks/SnackParent";
+import SnackParent from "./features/snacks/SnackParent";
 import NavBar from "./features/shared/NavBar";
 import SignInForm from "./features/authentication/SignInForm";
 import SignUpForm from "./features/authentication/SignUpForm";
