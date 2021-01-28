@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import "./App.css";
 import "./features/snacks/SnackParent";
@@ -9,7 +10,8 @@ import SignInForm from "./features/authentication/SignInForm";
 import SignUpForm from "./features/authentication/SignUpForm";
 import { CurrentUser } from "./api/CurrentUser";
 import { loadUser } from "./features/authentication/userSlice";
-import { useDispatch } from "react-redux";
+import SnackForm from "./features/snacks/SnackForm";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +35,7 @@ function App() {
         <Route exact path="/users" component={SignUpForm} />
         <Route exact path="/sign-in" component={SignInForm} />
         <Route exact path="/snacks" component={SnackParent} />
+        <Route exact path="/snacks/new" component={SnackForm} />
       </Switch>
     </BrowserRouter>
   );

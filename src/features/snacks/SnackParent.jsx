@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { Button } from "@material-ui/core";
 
 import { Snack } from "../../api/Snacks";
 import { loadSnacks } from "./snackSlice";
@@ -27,7 +28,14 @@ const SnackParent = () => {
     </div>
   );
 
-  return <div>{snackList}</div>;
+  return(
+    <div>
+      <Button variant="contained" color="primary" href="/snacks/new">
+        Create a Snack
+      </Button>
+      {snackList}
+    </div>
+    )
 };
 
 export default SnackParent;
