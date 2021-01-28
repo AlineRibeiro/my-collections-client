@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
