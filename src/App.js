@@ -19,7 +19,6 @@ function App() {
 
   const dispatch = useDispatch();
 
-
   const fetchCurrentUser = () => {
     CurrentUser.show().then((response) => {
       dispatch(loadUser(response));

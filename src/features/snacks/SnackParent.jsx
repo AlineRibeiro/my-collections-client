@@ -12,10 +12,9 @@ const SnackParent = () => {
   const snacks = useSelector((state) => state.snacks.index);
   const history = useHistory();
 
-
-  const redirectSnackNew = () => {
-    history.push("/snacks/new")
-  }
+  const redirectToSnackNew = () => {
+    history.push("/snacks/new");
+  };
 
   const fetchSnackIndex = () => {
     Snack.index().then((response) => {
@@ -37,7 +36,7 @@ const SnackParent = () => {
 
   return (
     <div>
-      <Button variant="contained" color="primary" onClick={redirectSnackNew}>
+      <Button variant="contained" color="primary" onClick={redirectToSnackNew}>
         Create a Snack
       </Button>
       {snackList}

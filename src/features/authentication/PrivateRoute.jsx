@@ -5,9 +5,7 @@ const PrivateRoute = ({ children, userEmail, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={location =>
-        userEmail ? children : <Redirect to='/sign-in' />
-      }
+      render={(location) => (userEmail ? children : <Redirect to="/sign-in" />)}
     />
   );
 };
