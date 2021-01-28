@@ -21,8 +21,7 @@ const NavBar = () => {
   useEffect(() => {}, [userEmail]);
 
   const logOut = () => {
-    Session.destroy().then();
-    dispatch(loadUser({}));
+    Session.destroy().then( () => dispatch(loadUser({email: '', id: ''})));
   };
 
   const LogOutButton = () => {

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { Button } from "@material-ui/core";
@@ -9,6 +10,12 @@ import { loadSnacks } from "./snackSlice";
 const SnackParent = () => {
   const dispatch = useDispatch();
   const snacks = useSelector((state) => state.snacks.index);
+  const history = useHistory();
+
+
+  const redirectSnackNew = () => {
+    history.push("/snacks/new")
+  }
 
   const fetchSnackIndex = () => {
     Snack.index().then((response) => {
@@ -30,7 +37,7 @@ const SnackParent = () => {
 
   return (
     <div>
-      <Button variant="contained" color="primary" href="/snacks/new">
+      <Button variant="contained" color="primary" onClick={redirectSnackNew}>
         Create a Snack
       </Button>
       {snackList}
