@@ -16,5 +16,4 @@ export const Snack = {
       body: JSON.stringify(requestBody),
     }).then((res) => res.json());
   },
-
 };

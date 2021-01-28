@@ -12,7 +12,7 @@ export const snackSlice = createSlice({
       return {
         ...state,
         index: action.payload,
-      }
+      };
     },
   },
 });

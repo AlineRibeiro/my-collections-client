@@ -12,7 +12,6 @@ import { CurrentUser } from "./api/CurrentUser";
 import { loadUser } from "./features/authentication/userSlice";
 import SnackForm from "./features/snacks/SnackForm";
 
-
 function App() {
   const dispatch = useDispatch();
 

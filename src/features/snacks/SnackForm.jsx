@@ -1,12 +1,18 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Alert from "@material-ui/lab/Alert";
-import { Button, Container, CssBaseline, TextField, Typography} from "@material-ui/core";
+import {
+  Button,
+  Container,
+  CssBaseline,
+  TextField,
+  Typography,
+} from "@material-ui/core";
 
 import SignFormStyles from "../authentication/SignFormStyles";
 import { Snack } from "../../api/Snacks";
 
-export default function SnackForm () {
+export default function SnackForm() {
   const [messageErrors, setMessageErrors] = useState([]);
   const [errorAlert, setErrorAlert] = useState(false);
   const [name, setName] = useState("");
@@ -20,7 +26,7 @@ export default function SnackForm () {
   };
 
   const displayError = (errors) => {
-  return errors.map((error) => (
+    return errors.map((error) => (
       <Alert
         onClose={handleClose}
         severity="error"

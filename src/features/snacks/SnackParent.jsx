@@ -20,22 +20,22 @@ const SnackParent = () => {
     fetchSnackIndex();
   });
 
-  const snackList = snacks.map((snack) =>
+  const snackList = snacks.map((snack) => (
     <div key={snack.id}>
       <h3>{snack.name}</h3>
       <p>{snack.description}</p>
       <p>{snack.snack_owner_email}</p>
     </div>
-  );
+  ));
 
-  return(
+  return (
     <div>
       <Button variant="contained" color="primary" href="/snacks/new">
         Create a Snack
       </Button>
       {snackList}
     </div>
-    )
+  );
 };
 
 export default SnackParent;
