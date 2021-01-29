@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { Button } from "@material-ui/core";
+import { Button, Container } from "@material-ui/core";
 
 import { Snack } from "../../api/Snacks";
 import { loadSnacks } from "./snackSlice";
@@ -35,12 +35,12 @@ const SnackParent = () => {
   ));
 
   return (
-    <div>
+    <Container>
       <Button variant="contained" color="primary" onClick={redirectToSnackNew}>
         Create a Snack
       </Button>
       {snackList}
-    </div>
+    </Container>
   );
 };
 
