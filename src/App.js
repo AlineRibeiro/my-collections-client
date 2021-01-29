@@ -13,6 +13,7 @@ import { CurrentUser } from "./api/CurrentUser";
 import { loadUser } from "./features/authentication/userSlice";
 import SnackForm from "./features/snacks/SnackForm";
 import PrivateRoute from "./features/authentication/PrivateRoute";
+import { CssBaseline } from "@material-ui/core";
 
 function App() {
   const userEmail = useSelector((state) => state.user.email);
@@ -30,19 +31,22 @@ function App() {
   });
 
   return (
-    <BrowserRouter>
-      <header>
-        <NavBar />
-      </header>
-      <Switch>
-        <Route exact path="/users" component={SignUpForm} />
-        <Route exact path="/sign-in" component={SignInForm} />
-        <Route exact path="/snacks" component={SnackParent} />
-        <PrivateRoute path="/snacks/new" userEmail={userEmail}>
-          <SnackForm />
-        </PrivateRoute>
-      </Switch>
-    </BrowserRouter>
+    <React.Fragment>
+      <CssBaseline />
+      <BrowserRouter>
+        <header>
+          <NavBar />
+        </header>
+        <Switch>
+          <Route exact path="/users" component={SignUpForm} />
+          <Route exact path="/sign-in" component={SignInForm} />
+          <Route exact path="/snacks" component={SnackParent} />
+          <PrivateRoute path="/snacks/new" userEmail={userEmail}>
+            <SnackForm />
+          </PrivateRoute>
+        </Switch>
+      </BrowserRouter>
+    </React.Fragment>
   );
 }
 

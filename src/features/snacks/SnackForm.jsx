@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Alert from "@material-ui/lab/Alert";
-import {
-  Button,
-  Container,
-  CssBaseline,
-  TextField,
-  Typography,
-} from "@material-ui/core";
+import { Button, Container, TextField, Typography } from "@material-ui/core";
 
 import SignFormStyles from "../authentication/SignFormStyles";
 import { Snack } from "../../api/Snacks";
@@ -56,7 +50,6 @@ export default function SnackForm() {
 
   return (
     <Container component="main" maxWidth="xs">
-      <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
           Create a Snack
