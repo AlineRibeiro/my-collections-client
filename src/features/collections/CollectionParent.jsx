@@ -30,7 +30,7 @@ const CollectionParent = () => {
     <div key={collection.id}>
       <h3>{collection.name}</h3>
       <p>{collection.description}</p>
-      <p>{collections.owner_email}</p>
+      <p>{collection.owner_email}</p>
     </div>
   ));
 
