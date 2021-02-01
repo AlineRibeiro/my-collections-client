@@ -4,11 +4,11 @@ const INITIAL_STATE = {
   index: [],
 };
 
-export const snackSlice = createSlice({
-  name: "snacks",
+export const collectionSlice = createSlice({
+  name: "collections",
   initialState: INITIAL_STATE,
   reducers: {
-    loadSnacks: (state, action) => {
+    loadCollections: (state, action) => {
       return {
         ...state,
         index: action.payload,
@@ -17,6 +17,6 @@ export const snackSlice = createSlice({
   },
 });
 
-export const { loadSnacks } = snackSlice.actions;
+export const { loadCollections } = collectionSlice.actions;
 
-export default snackSlice.reducer;
+export default collectionSlice.reducer;
