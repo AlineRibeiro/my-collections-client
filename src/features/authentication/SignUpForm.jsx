@@ -63,7 +63,7 @@ export default function SignUpForm() {
       if (!response.errors) {
         dispatch(loadUser(response));
         alert("Your user has been created");
-        history.push("/snacks");
+        history.push("/collections");
       } else {
         setMessageError(response.errors);
         setErrorAlert(true);

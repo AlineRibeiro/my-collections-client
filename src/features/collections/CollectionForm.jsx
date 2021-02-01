@@ -4,9 +4,9 @@ import Alert from "@material-ui/lab/Alert";
 import { Button, Container, TextField, Typography } from "@material-ui/core";
 
 import SignFormStyles from "../authentication/SignFormStyles";
-import { Snack } from "../../api/Snacks";
+import { Collection } from "../../api/Collections";
 
-export default function SnackForm() {
+export default function CollectionForm() {
   const [messageErrors, setMessageErrors] = useState([]);
   const [errorAlert, setErrorAlert] = useState(false);
   const [name, setName] = useState("");
@@ -31,16 +31,16 @@ export default function SnackForm() {
     ));
   };
 
-  const fetchSnackCreate = (event) => {
+  const fetchCollectionCreate = (event) => {
     event.preventDefault();
     const requestBody = {
-      snack: { name, description },
+      collection: { name, description },
     };
 
-    Snack.create(requestBody).then((response) => {
+    Collection.create(requestBody).then((response) => {
       if (!response.errors) {
-        alert("You created a snack");
-        history.push("/snacks");
+        alert("You created a collection");
+        history.push("/collections");
       } else {
         setMessageErrors(response.errors);
         setErrorAlert(true);
@@ -52,16 +52,16 @@ export default function SnackForm() {
     <Container component="main" maxWidth="xs">
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
-          Create a Snack
+          Create a Collection
         </Typography>
-        <form className={classes.form} noValidate onSubmit={fetchSnackCreate}>
+        <form className={classes.form} noValidate onSubmit={fetchCollectionCreate}>
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
             id="name"
-            label="Snack Name"
+            label="Collection Name"
             name="name"
             autoFocus
             onChange={(event) => setName(event.target.value)}

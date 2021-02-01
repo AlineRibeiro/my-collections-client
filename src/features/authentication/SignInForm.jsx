@@ -49,7 +49,7 @@ export default function SignInForm() {
       if (!response.error) {
         dispatch(loadUser(response));
         alert("You are logged in");
-        history.push("/snacks");
+        history.push("/collections");
       } else {
         setMessageError(response.error);
         setErrorAlert(true);

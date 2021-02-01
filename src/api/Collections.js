@@ -1,12 +1,12 @@
 import { baseUrl } from "../config";
 
-export const Snack = {
+export const Collection = {
   index() {
-    return fetch(`${baseUrl}/snacks`, {}).then((res) => res.json());
+    return fetch(`${baseUrl}/collections`, {}).then((res) => res.json());
   },
 
   create(requestBody) {
-    return fetch(`${baseUrl}/snacks`, {
+    return fetch(`${baseUrl}/collections`, {
       method: "POST",
       credentials: "include",
       headers: {
