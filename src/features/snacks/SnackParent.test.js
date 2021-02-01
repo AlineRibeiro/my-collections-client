@@ -19,7 +19,7 @@ test("renders SnackParent component", () => {
   expect(textElement).toBeInTheDocument();
 });
 
-test("displays SnackForm when user clicks button to  create a snack", async () => {
+test("displays SnackForm when user is logged in", async () => {
   render(
     <BrowserRouter>
       <Switch>

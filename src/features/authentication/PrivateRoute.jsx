@@ -1,11 +1,11 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
-const PrivateRoute = ({ children, userEmail, ...rest }) => {
+const PrivateRoute = ({ children, userEmail, ...props }) => {
   return (
     <Route
-      {...rest}
-      render={(location) => (userEmail ? children : <Redirect to="/sign-in" />)}
+      {...props}
+      render={() => (userEmail ? children : <Redirect to="/sign-in" />)}
     />
   );
 };
