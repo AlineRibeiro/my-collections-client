@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 import {
   Avatar,
   Button,
-  CssBaseline,
   TextField,
   Link,
   Grid,
@@ -74,7 +73,6 @@ export default function SignUpForm() {
 
   return (
     <Container component="main" maxWidth="xs">
-      <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
