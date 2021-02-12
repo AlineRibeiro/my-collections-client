@@ -1,37 +1,37 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 
-import CollectionParent from "./CollectionParent";
+import CompanyParent from "./CompanyParent";
 import { Provider } from "react-redux";
 import store from "../../app/store";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import CollectionForm from "./CollectionForm";
+import CompanyForm from "./CompanyForm";
 import SignInForm from "../authentication/SignInForm";
 import PrivateRoute from "../authentication/PrivateRoute";
 
-test("renders CollectionParent component", () => {
+test("renders CompanyParent component", () => {
   render(
     <Provider store={store}>
-      <CollectionParent />
+      <CompanyParent />
     </Provider>
   );
-  const textElement = screen.getByText(/create a collection/i);
+  const textElement = screen.getByText(/create a company/i);
   expect(textElement).toBeInTheDocument();
 });
 
-test("displays CollectionForm when user is logged in", async () => {
+test("displays CompanyForm when user is logged in", async () => {
   render(
     <BrowserRouter>
       <Switch>
         <Route exact path="/sign-in" component={SignInForm} />
         <PrivateRoute userEmail={"test@test.com"}>
-          <CollectionForm />
+          <CompanyForm />
         </PrivateRoute>
       </Switch>
     </BrowserRouter>
   );
 
-  await waitFor(() => screen.getByText("Collection Name"));
+  await waitFor(() => screen.getByText("Company Name"));
 
   expect(screen.getByText("Create")).toBeInTheDocument();
 });
@@ -43,7 +43,7 @@ test("redirects when user is not logged in", async () => {
         <Switch>
           <Route exact path="/sign-in" component={SignInForm} />
           <PrivateRoute userEmail={""}>
-            <CollectionForm />
+            <CompanyForm />
           </PrivateRoute>
         </Switch>
       </BrowserRouter>

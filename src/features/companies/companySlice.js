@@ -4,11 +4,11 @@ const INITIAL_STATE = {
   index: [],
 };
 
-export const collectionSlice = createSlice({
-  name: "collections",
+export const companySlice = createSlice({
+  name: "companies",
   initialState: INITIAL_STATE,
   reducers: {
-    loadCollections: (state, action) => {
+    loadCompanies: (state, action) => {
       return {
         ...state,
         index: action.payload,
@@ -17,6 +17,6 @@ export const collectionSlice = createSlice({
   },
 });
 
-export const { loadCollections } = collectionSlice.actions;
+export const { loadCompanies } = companySlice.actions;
 
-export default collectionSlice.reducer;
+export default companySlice.reducer;

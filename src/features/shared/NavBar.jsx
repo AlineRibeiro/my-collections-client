@@ -62,7 +62,7 @@ const NavBar = () => {
         </IconButton>
 
         <Typography variant="h6" className={classes.title}>
-          <Link to="/collections">My Collections</Link>
+          <Link to="/companies">My Companies</Link>
         </Typography>
 
         <Typography variant="h6" className={classes.title}>
