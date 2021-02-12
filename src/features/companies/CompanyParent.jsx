@@ -36,7 +36,11 @@ const CompanyParent = () => {
 
   return (
     <Container>
-      <Button variant="contained" color="primary" onClick={redirectToCompanyNew}>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={redirectToCompanyNew}
+      >
         Create a Company
       </Button>
       {companyList}
