@@ -4,9 +4,9 @@ import Alert from "@material-ui/lab/Alert";
 import { Button, Container, TextField, Typography } from "@material-ui/core";
 
 import SignFormStyles from "../authentication/SignFormStyles";
-import { Collection } from "../../api/Collections";
+import { Company } from "../../api/Companies";
 
-export default function CollectionForm() {
+export default function CompanyForm() {
   const [messageErrors, setMessageErrors] = useState([]);
   const [errorAlert, setErrorAlert] = useState(false);
   const [name, setName] = useState("");
@@ -31,16 +31,16 @@ export default function CollectionForm() {
     ));
   };
 
-  const fetchCollectionCreate = (event) => {
+  const fetchCompanyCreate = (event) => {
     event.preventDefault();
     const requestBody = {
-      collection: { name, description },
+      company: { name, description },
     };
 
-    Collection.create(requestBody).then((response) => {
+    Company.create(requestBody).then((response) => {
       if (!response.errors) {
-        alert("You created a collection");
-        history.push("/collections");
+        alert("You created a company");
+        history.push("/companies");
       } else {
         setMessageErrors(response.errors);
         setErrorAlert(true);
@@ -52,16 +52,16 @@ export default function CollectionForm() {
     <Container component="main" maxWidth="xs">
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
-          Create a Collection
+          Create a Company
         </Typography>
-        <form className={classes.form} noValidate onSubmit={fetchCollectionCreate}>
+        <form className={classes.form} noValidate onSubmit={fetchCompanyCreate}>
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
             id="name"
-            label="Collection Name"
+            label="Company Name"
             name="name"
             autoFocus
             onChange={(event) => setName(event.target.value)}
