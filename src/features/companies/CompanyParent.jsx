@@ -22,7 +22,6 @@ const CompanyParent = () => {
     });
   };
 
-
   const companyList = companies.map((company) => (
     <div key={company.id}>
       <h3>{company.name}</h3>
