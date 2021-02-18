@@ -22,9 +22,6 @@ const CompanyParent = () => {
     });
   };
 
-  useEffect(() => {
-    fetchCompanyIndex();
-  });
 
   const companyList = companies.map((company) => (
     <div key={company.id}>
@@ -33,6 +30,8 @@ const CompanyParent = () => {
       <p>{company.owner_email}</p>
     </div>
   ));
+
+  useEffect(fetchCompanyIndex, [dispatch]);
 
   return (
     <Container>
